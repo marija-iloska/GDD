@@ -4,7 +4,7 @@ for prior = 1:length(gamma)
     
     % Call Gibbs
     tic
-    [A_s4] = gibbs_indegree(I, I0, K, A_init, lambda_init, C_est, mu_x, sig_x, gamma(prior));
+    [A_s4] = gibbs_double_degree(I, I0, K, A_init, lambda_init, C_est, mu_x, sig_x, gamma(prior));
     toc 
     
     % Estimate as the mode

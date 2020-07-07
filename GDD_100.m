@@ -3,7 +3,7 @@ clc
 
 
 %% SETTINGS for generating data
-dim_y = 8; var_u =1;
+dim_y = 20; var_u =1;
 p_s = 0.7; p_ns = 0.3;
 T = 1e3;
 
@@ -36,11 +36,11 @@ I = 3000;                       % Gibbs iterations
 I0 = 1500;                      % Gibbs burn-in 
 K = 2;                          % Thinning parameter
 A_init = ones(dim_y, dim_y);    % Initial adjacency matrix
-R=32;
+R=100;
 lambda_init = 5;                % Initial prior parameter
 gamma = 2 : 1 : 8;                  % Hyperparameter for degree prior
 
-parpool(32)
+parpool(34)
 
 tic
 parfor run = 1:R
@@ -54,4 +54,4 @@ toc
 
 avg_dd = mean(fs_4, 1);
 
-save('DD8.mat', 'avg_dd')
+save('gdd20.mat', 'avg_dd')
